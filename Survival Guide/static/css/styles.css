@@ -1,0 +1,158 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #231d1e;
+    color: #fcfcfc;
+    margin: 0;
+    padding: 0;
+}
+
+#panel-personaje {
+    width: 30%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: #231d1e;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.avatar-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.panel-titulo {
+    color: #ff8207;
+    font-size: 26px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    font-family: 'Uncial Antiqua', serif;
+}
+
+.panel-subtitulo {
+    color: #d53d0c;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#mundo-aventura {
+    width: 70%;
+    background-image: url('/static/img/pared.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.seccion {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: #231d1e;
+    padding: 30px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.bloqueado {
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+h2 {
+    color: #ff8207;
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-family: 'Uncial Antiqua', serif;
+    font-weight: normal;
+    font-size: 28px;
+}
+
+h3 {
+    font-family: 'Uncial Antiqua', serif;
+    font-weight: normal;
+    font-size: 24px;
+    color: #d53d0c;
+}
+
+ul {
+    color: #fcfcfc;
+    line-height: 1.6;
+}
+
+.pregunta-bloque {
+    background-color: #88060660;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.pregunta-bloque p {
+    color: #fcfcfc;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.check-compromiso {
+    color: #ff8207;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+}
+
+button {
+    background-color: #d53d0c;
+    color: #fcfcfc;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #880606;
+}
+
+.error-msg {
+    color: #d53d0c;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    border: 1px solid #ff8207;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #880606;
+    color: #fcfcfc;
+}

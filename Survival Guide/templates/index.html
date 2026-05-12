@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Programación Móvil - UPQ</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+</head>
+<body>
+
+    <div id='panel-personaje'>
+        <div class='avatar-container'>
+            <img src='/static/img/personaje.gif' alt='Personaje'>
+        </div>
+        <p class='panel-titulo'>Camino del Estudiante</p>
+    </div>
+
+    <div id='mundo-aventura'>
+
+        <section class='seccion' id='sec-reglas'>
+
+            <div class='card'>
+
+                <h2>La Cámara de las Reglas</h2>
+                
+                <ul>
+                    <li>Respeto</li>
+                    <li>No comer en clase</li>
+                    <li>Pedir permiso para entrar al salón de clase</li>
+                    <li>No plagio</li>
+                </ul>
+
+                <div class='pregunta-bloque'>
+                    <p>1. ¿Está permitido comer durante la clase?</p>
+                    <label><input type='radio' name='reglas_p1' value='si'> Sí</label>
+                    <label><input type='radio' name='reglas_p1' value='no'> No</label>
+                </div>
+
+                <div class='pregunta-bloque'>
+                    <p>2. ¿Cómo deben ser los trabajos que entregues?</p>
+                    <label><input type='radio' name='reglas_p2' value='originales'> Originales, sin plagio</label>
+                    <label><input type='radio' name='reglas_p2' value='copias'> Copiados de internet</label>
+                </div>
+
+                <label class='check-compromiso'>
+                    <input type='checkbox' id='check-reglas'>
+                    Acepto cumplir estas normas
+                </label>
+                <button onclick="enviarValidacion('reglas')">Siguiente</button>
+
+            </div>
+
+        </section>
+
+        <section class='seccion bloqueado' id='sec-notas'>
+
+            <div class='card'>
+
+                <h2>El Oráculo de las Notas</h2>
+                
+                <table>
+                    <thead>
+                        <tr><th>Criterio</th><th>1P</th><th>2P</th><th>3P</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Evidencia de Conocimiento</td>
+                            <td>40%</td>
+                            <td>40%</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>Evidencia de Desempeño</td>
+                            <td>20%</td>
+                            <td>20%</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>Evidencia de Producto</td>
+                            <td>30%</td>
+                            <td>30%</td>
+                            <td>30%</td>
+                        </tr>
+                        <tr>
+                            <td>Proyecto Integrador</td>
+                            <td>10%</td>
+                            <td>10%</td>
+                            <td>50%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class='pregunta-bloque'>
+
+                    <p>1. ¿Qué porcentaje tiene el Proyecto Integrador en el 3P?</p>
+                    <label><input type='radio' name='notas_p1' value='10'> 10%</label>
+                    <label><input type='radio' name='notas_p1' value='50'> 50%</label>
+
+                </div>
+
+                <div class='pregunta-bloque'>
+
+                    <p>2. ¿Cuánto vale la Evidencia de Conocimiento en el 1P?</p>
+                    <label><input type='radio' name='notas_p2' value='40'> 40%</label>
+                    <label><input type='radio' name='notas_p2' value='20'> 20%</label>
+
+                </div>
+
+                <label class='check-compromiso'>
+                    <input type='checkbox' id='check-notas'>
+                    Entiendo la evaluación
+                </label>
+
+                <button onclick="enviarValidacion('notas')">Siguiente</button>
+                
+            </div>
+        </section>
+
+        <section class='seccion bloqueado' id='sec-skills'>
+
+            <div class='card'>
+                
+                <h2>Skills a desbloquear</h2>
+                
+                <ul>
+                    <li>Desarrollará aplicaciones móviles mediante lenguajes de programación, entornos de desarrollo, diseño de interfaces de usuario, arquitecturas, patrones de diseño y herramientas de programación móvil</li>
+                    <li>Soluciones tecnológicas multiplataforma de software web y móvil utilizando programación orientada a objetos, frameworks, bases de datos, estándares de calidad y diseño</li>
+                </ul>
+
+                <div class='pregunta-bloque'>
+                    <p>1. ¿Qué tipo de aplicaciones vas a desarrollar?</p>
+                    <label><input type='radio' name='skills_p1' value='escritorio'> Aplicaciones de escritorio</label>
+                    <label><input type='radio' name='skills_p1' value='moviles'> Aplicaciones móviles</label>
+                </div>
+
+                <div class='pregunta-bloque'>
+                    <p>2. ¿Qué tipo de programación vas a utilizar?</p>
+                    <label><input type='radio' name='skills_p2' value='objetos'> Programación orientada a objetos</label>
+                    <label><input type='radio' name='skills_p2' value='estructurada'> Programación estructurada</label>
+                </div>
+
+                <label class='check-compromiso'>
+                    <input type='checkbox' id='check-skills'>
+                    Me comprometo a aprender esto
+                </label>
+
+                <button onclick="enviarValidacion('skills')">Siguiente</button>
+
+            </div>
+        </section>
+
+        <section class='seccion bloqueado' id='sec-linea'>
+
+            <div class='card'>
+                
+                <h2>La Línea del Tiempo</h2>
+
+                <ul>
+                    <li>1er Parcial: 02-06-26</li>
+                    <li>2do Parcial: 07-07-26</li>
+                    <li>3er Parcial: 11-08-26</li>
+                    <li>Final: 17-08-26</li>
+                </ul>
+
+                <h3>Finalizado</h3>
+
+            </div>
+
+        </section>
+
+    </div>
+
+<script>
+    function enviarValidacion(id) {
+
+        const p1 = document.querySelector(`input[name='${id}_p1']:checked`)?.value;
+        const p2 = document.querySelector(`input[name='${id}_p2']:checked`)?.value;
+        const chk = document.getElementById(`check-${id}`).checked;
+
+        fetch('/validar', {
+
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ seccion: id, respuestas: { p1, p2 }, compromiso: chk })
+            
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.valido) {
+
+                const orden = ['reglas', 'notas', 'skills', 'linea'];
+                const siguienteId = 'sec-' + orden[orden.indexOf(id) + 1];
+                const siguiente = document.getElementById(siguienteId);
+                siguiente.classList.remove('bloqueado');
+                siguiente.scrollIntoView({ behavior: 'smooth' });
+            } else {
+
+                alert(data.mensaje || 'Respuesta incorrecta o incompleta.');
+            }
+        });
+    }
+</script>
+</body>
+</html>
