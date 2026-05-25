@@ -1,10 +1,9 @@
-// app.js
+// caja.js
 const readline = require('readline');
 const terminal = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
 
 const db = {
     pedidos: [],
@@ -14,12 +13,17 @@ const db = {
     idPromocion: 1
 };
 
-
+// Se exporta ANTES de importar para evitar dependencias circulares
 module.exports = { terminal, db, menuPrincipal, agregarPedido };
 
+// --- IMPORTACIONES ORIGINALES ---
 const cocina = require('./cocina.js');
 const cliente = require('./cliente.js');
 
+// --- NUEVAS IMPORTACIONES ---
+const caja2 = require('./caja2.js');
+const cocina2 = require('./cocina2.js');
+const cliente2 = require('./cliente2.js');
 
 function agregarPedido(nuevoPedido) {
     db.pedidos.push(nuevoPedido);
@@ -80,12 +84,18 @@ function menuPrincipal() {
     console.log("1. Caja");
     console.log("2. Cocina");
     console.log("3. Cliente");
+    console.log("4. Caja 2 (Callbacks)");
+    console.log("5. Cocina 2 (Promesas)");
+    console.log("6. Cliente 2 (Asincronía)");
     console.log("0. Salir");
 
     terminal.question("Selecciona tu rol: ", function(indicador) {
         if (indicador == "1") { menuCaja(); } 
         else if (indicador == "2") { cocina.menuCocina(); } 
         else if (indicador == "3") { cliente.menuCliente(); } 
+        else if (indicador == "4") { caja2.menuCaja2(); } 
+        else if (indicador == "5") { cocina2.menuCocina2(); } 
+        else if (indicador == "6") { cliente2.menuCliente2(); } 
         else if (indicador == "0") {
             console.log("Saliendo...");
             terminal.close();
