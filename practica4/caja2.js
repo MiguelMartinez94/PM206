@@ -1,4 +1,4 @@
-const { terminal, menuPrincipal } = require('./caja.js');
+const { terminal, menuPrincipal } = require('../practica3/caja.js');
 
 function notificarPedido(estado, callback) {
     if (estado === "listo") {
