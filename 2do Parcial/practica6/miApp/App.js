@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import {Saludo} from './components/Saludo';
 import { Saludo2 } from './components/Saludo2';
+import { Perfil } from './components/Perfil';
 
 
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
     <View style={styles.container}>
       
       
-      <Image source = {require('./assets/wave.png')}></Image>
+      <Image source={require('./assets/wave.png')} style={styles.img} />
 
       <Text>Componente 1</Text>
       <Saludo></Saludo>
@@ -21,6 +22,9 @@ export default function App() {
 
       <Text>Hola Mundo!</Text>
       <StatusBar style="auto" />
+
+      <Text>\nComponente de Perfil</Text>
+      <Perfil></Perfil>
     </View>
   );
 }
