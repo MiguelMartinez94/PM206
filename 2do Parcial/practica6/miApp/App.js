@@ -10,21 +10,24 @@ export default function App() {
   return (
     <View style={styles.container}>
       
-      
-      <Image source={require('./assets/wave.png')} style={styles.img} />
 
-      <Text>Componente 1</Text>
-      <Saludo></Saludo>
+      <Text>Componente de Perfil</Text>
+      <Perfil 
+      nombre="Miguel Martinez" 
+      carrera = "Sistemas" 
+      materia = "PM" 
+      cuatri = "Noveno"></Perfil>
 
+      <Text>---------------------------------------------------------------------</Text>
+      <Text>---------------------------------------------------------------------</Text>
 
-      <Text>Componente 2</Text>
-      <Saludo2></Saludo2>
+      <Text>Componente de Perfil</Text>
+      <Perfil 
+      nombre="Miguel Martinez" 
+      carrera = "Sistemas" 
+      materia = "PM" 
+      cuatri = "Noveno"></Perfil>
 
-      <Text>Hola Mundo!</Text>
-      <StatusBar style="auto" />
-
-      <Text>\nComponente de Perfil</Text>
-      <Perfil></Perfil>
     </View>
   );
 }
