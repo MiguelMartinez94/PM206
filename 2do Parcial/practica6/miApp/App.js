@@ -13,10 +13,11 @@ export default function App() {
 
       <Text>Componente de Perfil</Text>
       <Perfil 
-      nombre="Miguel Martinez" 
+      nombre="Miguel Adrian Martinez Salinas" 
       carrera = "Sistemas" 
       materia = "PM" 
-      cuatri = "Noveno"></Perfil>
+      cuatri = "Noveno"
+      style={styles.tarjetaRoja}></Perfil>
 
       <Text>---------------------------------------------------------------------</Text>
       <Text>---------------------------------------------------------------------</Text>
@@ -26,7 +27,52 @@ export default function App() {
       nombre="Miguel Martinez" 
       carrera = "Sistemas" 
       materia = "PM" 
-      cuatri = "Noveno"></Perfil>
+      cuatri = "Noveno"
+      style={styles.tarjetaVerde}></Perfil>
+
+      <Text>---------------------------------------------------------------------</Text>
+      <Text>---------------------------------------------------------------------</Text>
+
+      <Text>Componente de Perfil</Text>
+      <Perfil 
+      nombre="Miguel Martinez" 
+      carrera = "Sistemas" 
+      materia = "PM" 
+      cuatri = "Noveno"
+      style={styles.tarjeta}></Perfil>
+
+      <Text>---------------------------------------------------------------------</Text>
+      <Text>---------------------------------------------------------------------</Text>
+
+      <Text>Componente de Perfil</Text>
+      <Perfil 
+      nombre="Miguel Adrian Martinez Salinas" 
+      carrera = "Sistemas" 
+      materia = "PM" 
+      cuatri = "Noveno"
+      style={styles.tarjetaRoja}></Perfil>
+
+      <Text>---------------------------------------------------------------------</Text>
+      <Text>---------------------------------------------------------------------</Text>
+
+      <Text>Componente de Perfil</Text>
+      <Perfil 
+      nombre="Miguel Martinez" 
+      carrera = "Sistemas" 
+      materia = "PM" 
+      cuatri = "Noveno"
+      style={styles.tarjetaVerde}></Perfil>
+
+      <Text>---------------------------------------------------------------------</Text>
+      <Text>---------------------------------------------------------------------</Text>
+
+      <Text>Componente de Perfil</Text>
+      <Perfil 
+      nombre="Miguel Martinez" 
+      carrera = "Sistemas" 
+      materia = "PM" 
+      cuatri = "Noveno"
+      style={styles.tarjeta}></Perfil>
 
     </View>
   );
@@ -38,5 +84,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column'
   },
+  tarjetaRoja:{
+    backgroundColor: 'red'
+  },
+  tarjetaVerde:{
+    backgroundColor:'green'
+  }
 });
