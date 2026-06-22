@@ -2,19 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-/* import {Saludo} from './components/Saludo';
-import { Saludo2 } from './components/Saludo2';
-import { Perfil } from './components/Perfil'; */
-
-import MenuScreen from './screens/MenuScreen';
 
 
-export default function App() {
+export default function TajetasScreen() {
     return (
         <View style={styles.container}>
-
-          <MenuScreen/>
         
+        <Text>Aquí van las tarjetas</Text>
 
         <StatusBar style='auto'/>
 
@@ -25,7 +19,7 @@ export default function App() {
     const styles = StyleSheet.create({
     container: {
     flex: 1,
-    backgroundColor: '#856e6e',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column'
