@@ -1,0 +1,83 @@
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, FlatList, Button, SectionList } from 'react-native';
+import { useState } from 'react';
+
+export default function ListasScreen({ cambiarPantalla }) {
+    const [elementos, setElementos] = useState([
+        { id: '1', nombre: 'Elemento A' },
+        { id: '2', nombre: 'Elemento B' },
+        { id: '3', nombre: 'Elemento C' },
+        { id: '4', nombre: 'Elemento D' },
+        { id: '5', nombre: 'Elemento A' },
+        { id: '6', nombre: 'Elemento B' },
+        { id: '7', nombre: 'Elemento C' },
+        { id: '8', nombre: 'Elemento D' }
+    ]);
+
+    const [secciones, setSecciones] = useState([
+        { tituloCategoria: 'Refrescos', data: ['Coca-cola', 'Fanta', 'Pepsi'] },
+        { tituloCategoria: 'Jugos', data: ['Zanahoria', 'Naranja', 'Remolacha'] },
+        { tituloCategoria: 'Refrescos', data: ['Coca-cola', 'Fanta', 'Pepsi'] },
+        { tituloCategoria: 'Jugos', data: ['Zanahoria', 'Naranja', 'Remolacha'] }
+    ]);
+
+    const eliminarElemento = (id) => {
+        setElementos(elementos.filter(item => item.id != id));
+    };
+
+    const renderContenidoSuperior = () => (
+        <View>
+            <Button title="⬅ Volver al Menú" color="#856e6e" onPress={() => cambiarPantalla('menu')} />
+            <View style={{ height: 20 }} />
+
+            <Text style={styles.titulo}> Práctica FlatList </Text>
+            
+            <FlatList
+                data={elementos}
+                keyExtractor={(item) => item.id}
+                scrollEnabled={false}
+                renderItem={({ item }) => (
+                    <View style={styles.itemFlat}>
+                        <Text style={styles.texto}>{item.nombre}</Text>
+                        <Button title="Eliminar" onPress={() => eliminarElemento(item.id)} />
+                    </View>
+                )}
+            />
+
+            <View style={styles.barraDivisora} />
+            <Text style={styles.titulo}> Práctica SectionList </Text>
+        </View>
+    );
+
+    return (
+        <View style={styles.container}>
+            <SectionList
+                sections={secciones}
+                keyExtractor={(item, index) => item + index + Math.random().toString()}
+                ListHeaderComponent={renderContenidoSuperior}
+                renderItem={({ item }) => (
+                    <View style={styles.itemSection}>
+                        <Text style={styles.texto}>{item}</Text>
+                    </View>
+                )}
+                renderSectionHeader={({ section: { tituloCategoria } }) => (
+                    <View style={styles.encabezado}>
+                        <Text style={styles.textoEncabezado}>{tituloCategoria}</Text>
+                    </View>
+                )}
+            />
+            <StatusBar style="dark" />
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: { flex: 1, backgroundColor: '#ffffff', paddingTop: 50, paddingHorizontal: 20 },
+    titulo: { fontSize: 20, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
+    itemFlat: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, borderBottomWidth: 1, borderBottomColor: '#cccccc' },
+    itemSection: { padding: 12, borderBottomWidth: 1, borderBottomColor: '#b50000' },
+    encabezado: { backgroundColor: '#ff0202', padding: 8, marginTop: 15 },
+    textoEncabezado: { fontSize: 16, fontWeight: 'bold', color: '#ffffff' },
+    texto: { fontSize: 16 },
+    barraDivisora: { height: 2, backgroundColor: '#444444', marginVertical: 30, borderRadius: 1 }
+});
