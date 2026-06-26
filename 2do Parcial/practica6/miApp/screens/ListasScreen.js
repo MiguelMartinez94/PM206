@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function ListasScreen({ cambiarPantalla }) {
     const [elementos, setElementos] = useState([
-        { id: '1', nombre: 'Elemento A' },
+        { id: '1', nombre: 'Elemento A' }, 
         { id: '2', nombre: 'Elemento B' },
         { id: '3', nombre: 'Elemento C' },
         { id: '4', nombre: 'Elemento D' },
