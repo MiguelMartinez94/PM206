@@ -2,6 +2,7 @@ import {StatusBar} from 'expo-status-bar';
 import { Pressable, View, StyleSheet, Text, Switch } from 'react-native';
 import { useState } from 'react';
 
+//Este es el pressable y Switch
 export default function PressableSwitchScree(){
     const [buttontext, setButtonText] = useState('Dame Clic');
     const [isDarkMode, setIsDarkMode] = useState(false);
