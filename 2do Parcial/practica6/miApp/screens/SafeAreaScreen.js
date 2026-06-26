@@ -8,7 +8,7 @@ import {
   Switch,
 } from 'react-native';
 
-
+//Este es un comentario para subir el commit 
 export default function SafeAreaScreen() {
 
   const [activo, setActivo] = useState(true);
