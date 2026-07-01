@@ -8,6 +8,7 @@ import SafeAreaScreen from './SafeAreaScreen';
 import TextInputScreen from './TextInputAlertScreen';
 import PressableSwitch from './PressableSwitch'; 
 import ListasScreen from './ListasScreen'; 
+import ImageSplashScreen from './ImageSplashScreen';
 
 export default function MenuScreen() {
     const [screen, setScreen] = useState('menu');
@@ -23,6 +24,8 @@ export default function MenuScreen() {
             return <PressableSwitch />; 
         case 'listas':
             return <ListasScreen />;
+        case 'splash':
+            return <ImageSplashScreen />;
         case 'menu':
         default:    
             return (
