@@ -9,6 +9,8 @@ import TextInputScreen from './TextInputAlertScreen';
 import PressableSwitch from './PressableSwitch'; 
 import ListasScreen from './ListasScreen'; 
 import ImageSplashScreen from './ImageSplashScreen';
+import ActivityIndicatorScreen from './ActivityIndicatorScreen';
+import ModalBottomSheetScreen from './ModalBottomSheetScreen';
 
 export default function MenuScreen() {
     const [screen, setScreen] = useState('menu');
@@ -26,6 +28,10 @@ export default function MenuScreen() {
             return <ListasScreen />;
         case 'splash':
             return <ImageSplashScreen />;
+        case 'indicador':
+            return <ActivityIndicatorScreen />;
+        case 'modal':
+            return <ModalBottomSheetScreen />;    
         case 'menu':
         default:    
             return (
