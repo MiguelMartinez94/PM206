@@ -22,7 +22,7 @@ export default function App() {
 
     try {
       setCargando(true);
-      const respuesta = await fetch('http://localhost:5000/v1/usuarios', {
+      const respuesta = await fetch('http://172.30.191.72:5000/v1/usuarios', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre: nombre, edad: Number(edad) })
