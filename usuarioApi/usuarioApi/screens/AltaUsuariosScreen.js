@@ -1,9 +1,46 @@
 import React, { useState } from 'react';
-import {View,SafeAreaView,Text,TextInput,Pressable,StyleSheet,} from 'react-native';
+import {View,SafeAreaView,Text,TextInput,Pressable,StyleSheet, Alert, Platform} from 'react-native';
 
 export default function App() {
   const [nombre, setNombre] = useState('');
   const [edad, setEdad] = useState('');
+  const [cargando, setCargando] = useState(false);
+
+  const mostrarMensaje= (titulo, mensaje) => {
+    if(Platform.OS === 'web'){
+      window.alert(`${titulo}\n{mensaje}`);
+    }else{
+      Alert.alert(titulo,mensaje)
+    }
+  }
+
+  const guardarUsuario = async () => {
+    if (nombre.trim() === '' || edad.trim() === '') {
+      mostrarMensaje("Vacios", "Llena todos los camnpos");
+      return;
+    }
+
+    try {
+      setCargando(true);
+      const respuesta = await fetch('http://localhost:5000/v1/usuarios', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre: nombre, edad: Number(edad) })
+      });
+
+      const datos = await respuesta.json();
+      console.log("Respuesta API:", datos);
+      mostrarMensaje("Éxito", "El usuario se ha registrado");
+      setNombre('');
+      setEdad('');
+    } catch (error) {
+      console.log(`Error: ${error}`);
+      mostrarMensaje("Error", "No se ha podido guardar");
+    } finally{
+
+      setCargando(false);
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,9 +66,12 @@ export default function App() {
           onChangeText={setEdad}
         />
 
-        <Pressable style={styles.boton}>
+        <Pressable 
+        onPress={guardarUsuario}
+        disabled={cargando}
+        style={styles.boton}>
           <Text style={styles.textoBoton}>
-            Agregar Usuario
+            {cargando ? "Guardando..." : "Agregar Usuario"}
           </Text>
         </Pressable>
 
