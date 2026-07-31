@@ -1,21 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView,View,Text,FlatList,StyleSheet,
-} from 'react-native';
+import {SafeAreaView,View,Text,FlatList,StyleSheet, Pressable} from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function ConsultaUsuariosScreen() {
+  const router = useRouter();
 
   const [usuarios, setUsuarios] = useState([]);
   
-
   const obtenerUsuarios = async () => {
-
     try {
-      
-      const respuesta = await fetch("http://172.30.191.72:5000/v1/usuarios");
+      const respuesta = await fetch("http://192.168.100.13:5000/v1/usuarios");
       const datos = await respuesta.json();
-      console.log("respuesta API: ", datos);
       setUsuarios(datos.usuarios);
-
     } catch (error) {
       console.log("Error API", error);
     }
@@ -25,37 +21,32 @@ export default function ConsultaUsuariosScreen() {
 
   const renderTarjeta = ({ item }) => (
     <View style={styles.card}>
-
       <Text style={styles.nombre}>{item.nombre}</Text>
-
       <View style={styles.linea}></View>
-
-      <Text style={styles.info}>
-        Edad: {item.edad} años
-      </Text>
-
+      <Text style={styles.info}>Edad: {item.edad} años</Text>
+      
+      {}
+      <Pressable 
+        style={styles.btnDetalles} 
+        onPress={() => router.push({ pathname: '/detalles', params: { usuario: JSON.stringify(item) } })}
+      >
+        <Text style={styles.textoBtnDetalles}>Ver detalles</Text>
+      </Pressable>
     </View>
   );
 
   return (
-
     <SafeAreaView style={styles.container}>
-
-      <Text style={styles.titulo}>
-        Lista de Usuarios
-      </Text>
-
+      <Text style={styles.titulo}>Lista de Usuarios</Text>
       <FlatList
         data={usuarios}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={renderTarjeta}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 20 }}
       />
-
     </SafeAreaView>
   );
-  
 }
 
 const styles = StyleSheet.create({
@@ -80,7 +71,6 @@ const styles = StyleSheet.create({
     padding: 18,
     marginBottom: 15,
     elevation: 4,
-
     shadowColor: '#000',
     shadowOpacity: 0.15,
     shadowRadius: 5,
@@ -105,6 +95,17 @@ const styles = StyleSheet.create({
   info: {
     fontSize: 16,
     color: '#4B5563',
+  },
+
+  btnDetalles: {
+    alignSelf: 'flex-end',
+    marginTop: 10,
+  },
+
+  textoBtnDetalles: {
+    color: '#2563EB',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
 
 });
