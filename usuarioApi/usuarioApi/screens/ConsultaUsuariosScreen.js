@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {SafeAreaView,View,Text,FlatList,StyleSheet, Pressable} from 'react-native';
 import { useRouter } from 'expo-router';
+import { API_URL } from '../config';
 
 export default function ConsultaUsuariosScreen() {
   const router = useRouter();
@@ -9,7 +10,7 @@ export default function ConsultaUsuariosScreen() {
   
   const obtenerUsuarios = async () => {
     try {
-      const respuesta = await fetch("http://192.168.100.13:5000/v1/usuarios");
+      const respuesta = await fetch(`${API_URL}/v1/usuarios`);
       const datos = await respuesta.json();
       setUsuarios(datos.usuarios);
     } catch (error) {
@@ -25,7 +26,6 @@ export default function ConsultaUsuariosScreen() {
       <View style={styles.linea}></View>
       <Text style={styles.info}>Edad: {item.edad} años</Text>
       
-      {}
       <Pressable 
         style={styles.btnDetalles} 
         onPress={() => router.push({ pathname: '/detalles', params: { usuario: JSON.stringify(item) } })}

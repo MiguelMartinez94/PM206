@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, TextInput, Pressable, StyleSheet, Alert } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { API_URL } from '../config';
 
 export default function ActualizarUsuarioScreen() {
     const params = useLocalSearchParams();
@@ -19,7 +20,7 @@ export default function ActualizarUsuarioScreen() {
 
         try {
         setGuardando(true);
-        const respuesta = await fetch(`http://192.168.100.13:5000/v1/usuarios/${usuario.id}`, {
+        const respuesta = await fetch(`${API_URL}/v1/usuarios/${usuario.id}`, {
             method: "PUT",
             headers: { 
               "Content-Type": "application/json",

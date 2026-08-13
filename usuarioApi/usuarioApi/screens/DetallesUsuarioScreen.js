@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Pressable, Modal, Alert } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { API_URL } from '../config';
 
 export default function DetallesUsuarioScreen() {
     const params = useLocalSearchParams();
@@ -13,7 +14,7 @@ export default function DetallesUsuarioScreen() {
     const eliminarUsuario = async () => {
         try {
         setEliminando(true);
-        const respuesta = await fetch(`http://192.168.100.13:5000/v1/usuarios/${usuario.id}`, {
+        const respuesta = await fetch(`${API_URL}/v1/usuarios/${usuario.id}`, {
             method: 'DELETE',
             headers: {
               "Authorization": "Basic YWRtaW46MTIzNA=="

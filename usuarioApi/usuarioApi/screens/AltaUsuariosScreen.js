@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {View,SafeAreaView,Text,TextInput,Pressable,StyleSheet, Alert, Platform} from 'react-native';
+import { API_URL } from '../config';
 
 export default function App() {
   const [nombre, setNombre] = useState('');
@@ -8,7 +9,7 @@ export default function App() {
 
   const mostrarMensaje= (titulo, mensaje) => {
     if(Platform.OS === 'web'){
-      window.alert(`${titulo}\n{mensaje}`);
+      window.alert(`${titulo}\n${mensaje}`);
     }else{
       Alert.alert(titulo,mensaje)
     }
@@ -22,7 +23,7 @@ export default function App() {
 
     try {
       setCargando(true);
-      const respuesta = await fetch('http://192.168.100.13:5000/v1/usuarios', {
+      const respuesta = await fetch(`${API_URL}/v1/usuarios`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre: nombre, edad: Number(edad) })

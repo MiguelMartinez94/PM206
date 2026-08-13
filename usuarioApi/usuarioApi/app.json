@@ -1,32 +1,51 @@
 {
-  "expo": {
-    "name": "repa2",
+    "expo": {
+    "name": "Usuarios API",
     "slug": "repa2",
     "version": "1.0.0",
+    "scheme": "repa2",
     "orientation": "portrait",
-    "icon": "./assets/splash-icon.png",
+    
+    "icon": "./assets/UPQ Icono.png",
+    
+    "splash": {
+        "image": "./assets/UPQ Splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#FFFFFF"
+    },
+    
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
-      "supportsTablet": true
+        "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+        "adaptiveIcon": {
+        "foregroundImage": "./assets/UPQ Icono.png",
+        "backgroundColor": "#FFFFFF"
+        },
+        "edgeToEdgeEnabled": true,
+        "package": "com.mike_m98.repa2"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+        "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-router"
-    ]
-  }
+        "expo-router",
+        [
+        "expo-build-properties",
+        {
+            "android": {
+            "usesCleartextTraffic": true
+            }
+        }
+        ]
+    ],
+    "extra": {
+        "router": {},
+        "eas": {
+        "projectId": "c6df2a8e-3d38-4198-9205-914e16466bde"
+        }
+    }
+    }
 }
